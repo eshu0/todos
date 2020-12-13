@@ -15,11 +15,11 @@ import (
 // Controller
 
 type ProjectsController struct {
-	ProjectsHandler *hndlr.ProjectsHandler // Storage handler
+	ProjectsHandler *handlers.ProjectsHandler // Storage handler
 	Server *RSServer.RServer
 }
 
-func NewProjectsController(handler *hndlr.ProjectsHandler, Server *RSServer.RServer) *ProjectsController {
+func NewProjectsController(handler *handlers.ProjectsHandler, Server *RSServer.RServer) *ProjectsController {
 	ds := ProjectsController{}
 	ds.ProjectsHandler = handler
 	ds.Server = Server

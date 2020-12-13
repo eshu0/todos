@@ -31,15 +31,15 @@ func CreateDataStorage(filename string) *TodosDatastore {
 	// tests the example
 	ds.SetStorageHander("Generic",SQLL.NewSQLLiteTableHandler(ds)) 
 	
-	ds.SetStorageHander("ProjectHasJobs",hndlr.NewProjectHasJobsHandler(ds))
+	ds.SetStorageHander("ProjectHasJobs",handlers.NewProjectHasJobsHandler(ds))
 	
-	ds.SetStorageHander("Projects",hndlr.NewProjectsHandler(ds))
+	ds.SetStorageHander("Projects",handlers.NewProjectsHandler(ds))
 	
-	ds.SetStorageHander("Jobs",hndlr.NewJobsHandler(ds))
+	ds.SetStorageHander("Jobs",handlers.NewJobsHandler(ds))
 	
-	ds.SetStorageHander("Tasks",hndlr.NewTasksHandler(ds))
+	ds.SetStorageHander("Tasks",handlers.NewTasksHandler(ds))
 	
-	ds.SetStorageHander("JobHasTasks",hndlr.NewJobHasTasksHandler(ds))
+	ds.SetStorageHander("JobHasTasks",handlers.NewJobHasTasksHandler(ds))
 	
 
 
@@ -51,51 +51,51 @@ func CreateDataStorage(filename string) *TodosDatastore {
 }
 
 
-func (fds *TodosDatastore) GetProjectHasJobsHandler() *hndlr.ProjectHasJobsHandler {
+func (fds *TodosDatastore) GetProjectHasJobsHandler() *handlers.ProjectHasJobsHandler {
 
 	data, ok := fds.Datastore.GetStorageHandler("ProjectHasJobs")
 	if ok {
-	  res := data.(*hndlr.ProjectHasJobsHandler)
+	  res := data.(*handlers.ProjectHasJobsHandler)
 	  return res
 	}
 	return nil
 }
 
-func (fds *TodosDatastore) GetProjectsHandler() *hndlr.ProjectsHandler {
+func (fds *TodosDatastore) GetProjectsHandler() *handlers.ProjectsHandler {
 
 	data, ok := fds.Datastore.GetStorageHandler("Projects")
 	if ok {
-	  res := data.(*hndlr.ProjectsHandler)
+	  res := data.(*handlers.ProjectsHandler)
 	  return res
 	}
 	return nil
 }
 
-func (fds *TodosDatastore) GetJobsHandler() *hndlr.JobsHandler {
+func (fds *TodosDatastore) GetJobsHandler() *handlers.JobsHandler {
 
 	data, ok := fds.Datastore.GetStorageHandler("Jobs")
 	if ok {
-	  res := data.(*hndlr.JobsHandler)
+	  res := data.(*handlers.JobsHandler)
 	  return res
 	}
 	return nil
 }
 
-func (fds *TodosDatastore) GetTasksHandler() *hndlr.TasksHandler {
+func (fds *TodosDatastore) GetTasksHandler() *handlers.TasksHandler {
 
 	data, ok := fds.Datastore.GetStorageHandler("Tasks")
 	if ok {
-	  res := data.(*hndlr.TasksHandler)
+	  res := data.(*handlers.TasksHandler)
 	  return res
 	}
 	return nil
 }
 
-func (fds *TodosDatastore) GetJobHasTasksHandler() *hndlr.JobHasTasksHandler {
+func (fds *TodosDatastore) GetJobHasTasksHandler() *handlers.JobHasTasksHandler {
 
 	data, ok := fds.Datastore.GetStorageHandler("JobHasTasks")
 	if ok {
-	  res := data.(*hndlr.JobHasTasksHandler)
+	  res := data.(*handlers.JobHasTasksHandler)
 	  return res
 	}
 	return nil

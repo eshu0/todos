@@ -15,11 +15,11 @@ import (
 // Controller
 
 type JobHasTasksController struct {
-	JobHasTasksHandler *hndlr.JobHasTasksHandler // Storage handler
+	JobHasTasksHandler *handlers.JobHasTasksHandler // Storage handler
 	Server *RSServer.RServer
 }
 
-func NewJobHasTasksController(handler *hndlr.JobHasTasksHandler, Server *RSServer.RServer) *JobHasTasksController {
+func NewJobHasTasksController(handler *handlers.JobHasTasksHandler, Server *RSServer.RServer) *JobHasTasksController {
 	ds := JobHasTasksController{}
 	ds.JobHasTasksHandler = handler
 	ds.Server = Server

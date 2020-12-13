@@ -38,7 +38,7 @@ func main() {
 	RESTCommands.AddDefaults(server)
 	RESTCommands.SetDefaultFunctionalMap(server)
 
-	fds := ds.CreateDataStorage(*dbname)
+	fds := datastore.CreateDataStorage(*dbname)
 
 	
 

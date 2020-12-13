@@ -15,11 +15,11 @@ import (
 // Controller
 
 type TasksController struct {
-	TasksHandler *hndlr.TasksHandler // Storage handler
+	TasksHandler *handlers.TasksHandler // Storage handler
 	Server *RSServer.RServer
 }
 
-func NewTasksController(handler *hndlr.TasksHandler, Server *RSServer.RServer) *TasksController {
+func NewTasksController(handler *handlers.TasksHandler, Server *RSServer.RServer) *TasksController {
 	ds := TasksController{}
 	ds.TasksHandler = handler
 	ds.Server = Server

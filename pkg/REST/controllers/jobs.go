@@ -15,11 +15,11 @@ import (
 // Controller
 
 type JobsController struct {
-	JobsHandler *hndlr.JobsHandler // Storage handler
+	JobsHandler *handlers.JobsHandler // Storage handler
 	Server *RSServer.RServer
 }
 
-func NewJobsController(handler *hndlr.JobsHandler, Server *RSServer.RServer) *JobsController {
+func NewJobsController(handler *handlers.JobsHandler, Server *RSServer.RServer) *JobsController {
 	ds := JobsController{}
 	ds.JobsHandler = handler
 	ds.Server = Server

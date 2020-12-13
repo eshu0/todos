@@ -15,7 +15,7 @@ func main() {
 
 	flag.Parse()
 
-	fds := ds.CreateDataStorage(*dbname)
+	fds := datastore.CreateDataStorage(*dbname)
 
 	
 	ProjectHasJobsHandler := fds.GetProjectHasJobsHandler()
