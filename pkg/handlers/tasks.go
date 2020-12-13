@@ -79,12 +79,12 @@ func (handler *TasksHandler) Wipe() SQLL.SQLLiteQueryResult {
 
 // This adds Task to the database 
 func (handler *TasksHandler) Create(Data per.IDataItem) SQLL.SQLLiteQueryResult {
-	data := Data.(data.Task)
+	data := Data.(models.Task)
 	return handler.ConvertResult(handler.Executor.ExecuteInsertQuery("INSERT INTO " + tasksTName + " ( "+ "["+tasksDisplaynameCName+"]" +  ",["+tasksArchivedCName+"]" + ",["+tasksCompletedCName+"]" +" ) VALUES (?,?,?)", data.Displayname,data.Archived,data.Completed))
 }
 
 func (handler *TasksHandler) Update(Data per.IDataItem) SQLL.SQLLiteQueryResult  {
-	data := Data.(data.Task)
+	data := Data.(models.Task)
 	return handler.ConvertResult(handler.Executor.ExecuteQuery("UPDATE " + tasksTName + " SET "+ "["+tasksDisplaynameCName+"] = ? " +  ",["+tasksArchivedCName+"] = ? " + ",["+tasksCompletedCName+"] = ? " +"  WHERE [" + tasksIdCName + "] = ?",data.Displayname,data.Archived,data.Completed,data.Id))
 }
 
@@ -144,7 +144,7 @@ func (handler *TasksHandler) ParseRows(rows *sql.Rows) per.IQueryResult {
 		if err != nil {
 			handler.Parent.LogErrorEf("ParseRows","Row Scan errr: %s ",err)
 		} else {
-			res := data.Task{}
+			res := models.Task{}
 			
 				if Id != nil {
 					res.Id = *Id

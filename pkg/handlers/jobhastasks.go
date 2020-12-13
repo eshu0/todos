@@ -76,12 +76,12 @@ func (handler *JobHasTasksHandler) Wipe() SQLL.SQLLiteQueryResult {
 
 // This adds JobHasTask to the database 
 func (handler *JobHasTasksHandler) Create(Data per.IDataItem) SQLL.SQLLiteQueryResult {
-	data := Data.(data.JobHasTask)
+	data := Data.(models.JobHasTask)
 	return handler.ConvertResult(handler.Executor.ExecuteInsertQuery("INSERT INTO " + jobhastasksTName + " ( "+ "["+jobhastasksJobidCName+"]" +  ",["+jobhastasksTaskidCName+"]" +" ) VALUES (?,?)", data.Jobid,data.Taskid))
 }
 
 func (handler *JobHasTasksHandler) Update(Data per.IDataItem) SQLL.SQLLiteQueryResult  {
-	data := Data.(data.JobHasTask)
+	data := Data.(models.JobHasTask)
 	return handler.ConvertResult(handler.Executor.ExecuteQuery("UPDATE " + jobhastasksTName + " SET "+ "["+jobhastasksJobidCName+"] = ? " +  ",["+jobhastasksTaskidCName+"] = ? " +"  WHERE [" + jobhastasksIdCName + "] = ?",data.Jobid,data.Taskid,data.Id))
 }
 
@@ -134,7 +134,7 @@ func (handler *JobHasTasksHandler) ParseRows(rows *sql.Rows) per.IQueryResult {
 		if err != nil {
 			handler.Parent.LogErrorEf("ParseRows","Row Scan errr: %s ",err)
 		} else {
-			res := data.JobHasTask{}
+			res := models.JobHasTask{}
 			
 				if Id != nil {
 					res.Id = *Id

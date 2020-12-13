@@ -82,12 +82,12 @@ func (handler *ProjectsHandler) Wipe() SQLL.SQLLiteQueryResult {
 
 // This adds Project to the database 
 func (handler *ProjectsHandler) Create(Data per.IDataItem) SQLL.SQLLiteQueryResult {
-	data := Data.(data.Project)
+	data := Data.(models.Project)
 	return handler.ConvertResult(handler.Executor.ExecuteInsertQuery("INSERT INTO " + projectsTName + " ( "+ "["+projectsDisplaynameCName+"]" +  ",["+projectsDescriptionCName+"]" + ",["+projectsArchivedCName+"]" + ",["+projectsCompletedCName+"]" +" ) VALUES (?,?,?,?)", data.Displayname,data.Description,data.Archived,data.Completed))
 }
 
 func (handler *ProjectsHandler) Update(Data per.IDataItem) SQLL.SQLLiteQueryResult  {
-	data := Data.(data.Project)
+	data := Data.(models.Project)
 	return handler.ConvertResult(handler.Executor.ExecuteQuery("UPDATE " + projectsTName + " SET "+ "["+projectsDisplaynameCName+"] = ? " +  ",["+projectsDescriptionCName+"] = ? " + ",["+projectsArchivedCName+"] = ? " + ",["+projectsCompletedCName+"] = ? " +"  WHERE [" + projectsIdCName + "] = ?",data.Displayname,data.Description,data.Archived,data.Completed,data.Id))
 }
 
@@ -154,7 +154,7 @@ func (handler *ProjectsHandler) ParseRows(rows *sql.Rows) per.IQueryResult {
 		if err != nil {
 			handler.Parent.LogErrorEf("ParseRows","Row Scan errr: %s ",err)
 		} else {
-			res := data.Project{}
+			res := models.Project{}
 			
 				if Id != nil {
 					res.Id = *Id

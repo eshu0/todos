@@ -76,12 +76,12 @@ func (handler *ProjectHasJobsHandler) Wipe() SQLL.SQLLiteQueryResult {
 
 // This adds ProjectHasJob to the database 
 func (handler *ProjectHasJobsHandler) Create(Data per.IDataItem) SQLL.SQLLiteQueryResult {
-	data := Data.(data.ProjectHasJob)
+	data := Data.(models.ProjectHasJob)
 	return handler.ConvertResult(handler.Executor.ExecuteInsertQuery("INSERT INTO " + projecthasjobsTName + " ( "+ "["+projecthasjobsProjectidCName+"]" +  ",["+projecthasjobsJobidCName+"]" +" ) VALUES (?,?)", data.Projectid,data.Jobid))
 }
 
 func (handler *ProjectHasJobsHandler) Update(Data per.IDataItem) SQLL.SQLLiteQueryResult  {
-	data := Data.(data.ProjectHasJob)
+	data := Data.(models.ProjectHasJob)
 	return handler.ConvertResult(handler.Executor.ExecuteQuery("UPDATE " + projecthasjobsTName + " SET "+ "["+projecthasjobsProjectidCName+"] = ? " +  ",["+projecthasjobsJobidCName+"] = ? " +"  WHERE [" + projecthasjobsIdCName + "] = ?",data.Projectid,data.Jobid,data.Id))
 }
 
@@ -134,7 +134,7 @@ func (handler *ProjectHasJobsHandler) ParseRows(rows *sql.Rows) per.IQueryResult
 		if err != nil {
 			handler.Parent.LogErrorEf("ParseRows","Row Scan errr: %s ",err)
 		} else {
-			res := data.ProjectHasJob{}
+			res := models.ProjectHasJob{}
 			
 				if Id != nil {
 					res.Id = *Id

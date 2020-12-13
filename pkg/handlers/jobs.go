@@ -82,12 +82,12 @@ func (handler *JobsHandler) Wipe() SQLL.SQLLiteQueryResult {
 
 // This adds Job to the database 
 func (handler *JobsHandler) Create(Data per.IDataItem) SQLL.SQLLiteQueryResult {
-	data := Data.(data.Job)
+	data := Data.(models.Job)
 	return handler.ConvertResult(handler.Executor.ExecuteInsertQuery("INSERT INTO " + jobsTName + " ( "+ "["+jobsDisplaynameCName+"]" +  ",["+jobsDescriptionCName+"]" + ",["+jobsArchivedCName+"]" + ",["+jobsCompletedCName+"]" +" ) VALUES (?,?,?,?)", data.Displayname,data.Description,data.Archived,data.Completed))
 }
 
 func (handler *JobsHandler) Update(Data per.IDataItem) SQLL.SQLLiteQueryResult  {
-	data := Data.(data.Job)
+	data := Data.(models.Job)
 	return handler.ConvertResult(handler.Executor.ExecuteQuery("UPDATE " + jobsTName + " SET "+ "["+jobsDisplaynameCName+"] = ? " +  ",["+jobsDescriptionCName+"] = ? " + ",["+jobsArchivedCName+"] = ? " + ",["+jobsCompletedCName+"] = ? " +"  WHERE [" + jobsIdCName + "] = ?",data.Displayname,data.Description,data.Archived,data.Completed,data.Id))
 }
 
@@ -154,7 +154,7 @@ func (handler *JobsHandler) ParseRows(rows *sql.Rows) per.IQueryResult {
 		if err != nil {
 			handler.Parent.LogErrorEf("ParseRows","Row Scan errr: %s ",err)
 		} else {
-			res := data.Job{}
+			res := models.Job{}
 			
 				if Id != nil {
 					res.Id = *Id
