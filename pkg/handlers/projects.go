@@ -1,4 +1,4 @@
-package pguhandlers
+package handlers
 
 import (
 	"database/sql"
@@ -7,7 +7,7 @@ import (
 	per "github.com/eshu0/persist/pkg/interfaces"
 
 	// these are from the package
-	models "github.com/eshu0/todos/pkg/models"
+	"github.com/eshu0/todos/pkg/models"
 )
 
 //

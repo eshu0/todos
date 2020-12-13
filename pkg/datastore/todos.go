@@ -1,10 +1,10 @@
-package pgudatastore
+package datastore
 
 import (
 	SQLL "github.com/eshu0/persist/pkg/sqllite"
 
 	// these are from the package
-	hndlr "github.com/eshu0/todos/pkg/handlers"
+	"github.com/eshu0/todos/pkg/handlers"
 )
 
 type TodosDatastore struct {

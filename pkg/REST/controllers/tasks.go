@@ -1,4 +1,4 @@
-package pgucontrollers
+package controllers
 
 import (
 	// external
@@ -8,8 +8,8 @@ import (
 	"github.com/eshu0/persist/pkg/sqllite"
 
 	// these are from the package
-	hndlr "github.com/eshu0/todos/pkg/handlers"
-	models "github.com/eshu0/todos/pkg/models"
+	"github.com/eshu0/todos/pkg/handlers"
+	"github.com/eshu0/todos/pkg/models"
 )
 
 // Controller

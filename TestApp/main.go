@@ -5,8 +5,8 @@ import (
 	"fmt"
 
   	// these are from the package 
-	ds "github.com/eshu0/todos/pkg/datastore"
-	models "github.com/eshu0/todos/pkg/models"
+	"github.com/eshu0/todos/pkg/datastore"
+	"github.com/eshu0/todos/pkg/models"
 )
 
 func main() {
