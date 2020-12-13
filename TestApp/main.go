@@ -4,11 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	
-
-  	// these are from the package
-	ds "eshu0/todos/github.com/pkg/DataStore"
-	models "eshu0/todos/github.com/pkg/models"
+  	// these are from the package 
+	ds "github.com/eshu0/todos/pkg/datastore"
+	models "github.com/eshu0/todos/pkg/models"
 )
 
 func main() {

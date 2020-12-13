@@ -7,7 +7,7 @@ import (
 	per "github.com/eshu0/persist/pkg/interfaces"
 
 	// these are from the package
-	models "eshu0/todos/github.com/pkg/models"
+	models "github.com/eshu0/todos/pkg/models"
 )
 
 //

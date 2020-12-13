@@ -3,13 +3,13 @@ package pgucontrollers
 import (
 	// external
 	Request "github.com/eshu0/RESTServer/pkg/request"
-	per "github.com/eshu0/persist/pkg/interfaces"
 	RSServer "github.com/eshu0/RESTServer/pkg/server"
+	per "github.com/eshu0/persist/pkg/interfaces"
 	"github.com/eshu0/persist/pkg/sqllite"
 
 	// these are from the package
-	hndlr "eshu0/todos/github.com/pkg/handlers"
-	models "eshu0/todos/github.com/pkg/models"
+	hndlr "github.com/eshu0/todos/pkg/handlers"
+	models "github.com/eshu0/todos/pkg/models"
 )
 
 // Controller

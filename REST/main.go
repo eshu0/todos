@@ -3,18 +3,14 @@ package main
 import (
 	"flag"
 
-
-	
 	RESTCommands "github.com/eshu0/RESTServer/pkg/commands"
 	RSConfig "github.com/eshu0/RESTServer/pkg/config"
 	RSServer "github.com/eshu0/RESTServer/pkg/server"
-
 	
-
-  	// these are from the package
-	ds "eshu0/todos/github.com/pkg/datastore"
-	models "eshu0/todos/github.com/pkg/models"
-	controllers "eshu0/todos/github.com/pkg/REST/controllers"		
+  	// these are from the package 
+	ds "github.com/eshu0/todos/pkg/datastore"
+	models "github.com/eshu0/todos/pkg/models"
+	controllers "github.com/eshu0/todos/pkg/REST/controllers"		
 )
 
 func main() {
