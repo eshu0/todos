@@ -15,6 +15,6 @@
 # vendor/
 .DS_Store
 *.log
-TestApp/TestApp
 *.db
-REST/REST
+cmd/restserver/restserver
+cmd/testapp/testapp
