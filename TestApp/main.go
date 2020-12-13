@@ -7,8 +7,8 @@ import (
 	
 
   	// these are from the package
-	ds "github.com/esh0/todos/pkg/DataStore"
-	data "github.com/esh0/todos/pkg/Models"
+	ds "github.com/eshu0/todos/pkg/DataStore"
+	data "github.com/eshu0/todos/pkg/Models"
 )
 
 func main() {

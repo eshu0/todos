@@ -12,9 +12,9 @@ import (
 	
 
   	// these are from the package
-	ds "github.com/esh0/todos/pkg/DataStore"
-	data "github.com/esh0/todos/pkg/Models"
-	Controllers "github.com/esh0/todos/REST/Controllers"		
+	ds "github.com/eshu0/todos/pkg/DataStore"
+	data "github.com/eshu0/todos/pkg/Models"
+	Controllers "github.com/eshu0/todos/REST/Controllers"		
 )
 
 func main() {
