@@ -33,7 +33,7 @@ func main() {
 	fmt.Println("Create")
 	fmt.Println("----")
 	
-	newProjectHasJob  := data.ProjectHasJob{}
+	newProjectHasJob  := models.ProjectHasJob{}
 	fmt.Println(newProjectHasJob)
 
 	insProjectHasJob := ProjectHasJobsHandler.Create(newProjectHasJob)
@@ -56,7 +56,7 @@ func main() {
 			fmt.Println("Update")
 			fmt.Println("----")
 			
-			res :=data.ProjectHasJob{}
+			res :=models.ProjectHasJob{}
 			res = res.ConvertFromIDataItem(res1)
 			fmt.Println(res)
 			
@@ -70,7 +70,7 @@ func main() {
 	}
 	
 	
-	newProject  := data.Project{}
+	newProject  := models.Project{}
 	fmt.Println(newProject)
 
 	insProject := ProjectsHandler.Create(newProject)
@@ -93,7 +93,7 @@ func main() {
 			fmt.Println("Update")
 			fmt.Println("----")
 			
-			res :=data.Project{}
+			res :=models.Project{}
 			res = res.ConvertFromIDataItem(res1)
 			fmt.Println(res)
 			
@@ -111,7 +111,7 @@ func main() {
 	}
 	
 	
-	newJob  := data.Job{}
+	newJob  := models.Job{}
 	fmt.Println(newJob)
 
 	insJob := JobsHandler.Create(newJob)
@@ -134,7 +134,7 @@ func main() {
 			fmt.Println("Update")
 			fmt.Println("----")
 			
-			res :=data.Job{}
+			res :=models.Job{}
 			res = res.ConvertFromIDataItem(res1)
 			fmt.Println(res)
 			
@@ -152,7 +152,7 @@ func main() {
 	}
 	
 	
-	newTask  := data.Task{}
+	newTask  := models.Task{}
 	fmt.Println(newTask)
 
 	insTask := TasksHandler.Create(newTask)
@@ -175,7 +175,7 @@ func main() {
 			fmt.Println("Update")
 			fmt.Println("----")
 			
-			res :=data.Task{}
+			res :=models.Task{}
 			res = res.ConvertFromIDataItem(res1)
 			fmt.Println(res)
 			
@@ -191,7 +191,7 @@ func main() {
 	}
 	
 	
-	newJobHasTask  := data.JobHasTask{}
+	newJobHasTask  := models.JobHasTask{}
 	fmt.Println(newJobHasTask)
 
 	insJobHasTask := JobHasTasksHandler.Create(newJobHasTask)
@@ -214,7 +214,7 @@ func main() {
 			fmt.Println("Update")
 			fmt.Println("----")
 			
-			res :=data.JobHasTask{}
+			res :=models.JobHasTask{}
 			res = res.ConvertFromIDataItem(res1)
 			fmt.Println(res)
 			

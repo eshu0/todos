@@ -6,7 +6,7 @@ import (
 	RESTCommands "github.com/eshu0/RESTServer/pkg/commands"
 	RSConfig "github.com/eshu0/RESTServer/pkg/config"
 	RSServer "github.com/eshu0/RESTServer/pkg/server"
-	
+
   	// these are from the package 
 	ds "github.com/eshu0/todos/pkg/datastore"
 	models "github.com/eshu0/todos/pkg/models"
@@ -43,38 +43,38 @@ func main() {
 	
 
 	ProjectHasJobsHandler := fds.GetProjectHasJobsHandler()
-	ProjectHasJobsController := Controllers.NewProjectHasJobsController(ProjectHasJobsHandler, server)
+	ProjectHasJobsController := controllers.NewProjectHasJobsController(ProjectHasJobsHandler, server)
 	server.Register("ProjectHasJobsController",ProjectHasJobsController)
 
 	
 
 	ProjectsHandler := fds.GetProjectsHandler()
-	ProjectsController := Controllers.NewProjectsController(ProjectsHandler, server)
+	ProjectsController := controllers.NewProjectsController(ProjectsHandler, server)
 	server.Register("ProjectsController",ProjectsController)
 
 	
 
 	JobsHandler := fds.GetJobsHandler()
-	JobsController := Controllers.NewJobsController(JobsHandler, server)
+	JobsController := controllers.NewJobsController(JobsHandler, server)
 	server.Register("JobsController",JobsController)
 
 	
 
 	TasksHandler := fds.GetTasksHandler()
-	TasksController := Controllers.NewTasksController(TasksHandler, server)
+	TasksController := controllers.NewTasksController(TasksHandler, server)
 	server.Register("TasksController",TasksController)
 
 	
 
 	JobHasTasksHandler := fds.GetJobHasTasksHandler()
-	JobHasTasksController := Controllers.NewJobHasTasksController(JobHasTasksHandler, server)
+	JobHasTasksController := controllers.NewJobHasTasksController(JobHasTasksHandler, server)
 	server.Register("JobHasTasksController",JobHasTasksController)
 
 	
 
 	
 
-	newProjectHasJob  := data.ProjectHasJob{}
+	newProjectHasJob  := models.ProjectHasJob{}
 	
 	server.AddJSONFunctionHandler("/ProjectHasJob/{Id}/","HandleRequest","GET","ProjectHasJobsController",newProjectHasJob)
 	server.AddJSONFunctionHandler("/ProjectHasJob/","HandleRequest","","ProjectHasJobsController",newProjectHasJob)
@@ -82,7 +82,7 @@ func main() {
 
 	
 
-	newProject  := data.Project{}
+	newProject  := models.Project{}
 	
 	server.AddJSONFunctionHandler("/Project/{Id}/","HandleRequest","GET","ProjectsController",newProject)
 	server.AddJSONFunctionHandler("/Project/","HandleRequest","","ProjectsController",newProject)
@@ -90,7 +90,7 @@ func main() {
 
 	
 
-	newJob  := data.Job{}
+	newJob  := models.Job{}
 	
 	server.AddJSONFunctionHandler("/Job/{Id}/","HandleRequest","GET","JobsController",newJob)
 	server.AddJSONFunctionHandler("/Job/","HandleRequest","","JobsController",newJob)
@@ -98,7 +98,7 @@ func main() {
 
 	
 
-	newTask  := data.Task{}
+	newTask  := models.Task{}
 	
 	server.AddJSONFunctionHandler("/Task/{Id}/","HandleRequest","GET","TasksController",newTask)
 	server.AddJSONFunctionHandler("/Task/","HandleRequest","","TasksController",newTask)
@@ -106,7 +106,7 @@ func main() {
 
 	
 
-	newJobHasTask  := data.JobHasTask{}
+	newJobHasTask  := models.JobHasTask{}
 	
 	server.AddJSONFunctionHandler("/JobHasTask/{Id}/","HandleRequest","GET","JobHasTasksController",newJobHasTask)
 	server.AddJSONFunctionHandler("/JobHasTask/","HandleRequest","","JobHasTasksController",newJobHasTask)
