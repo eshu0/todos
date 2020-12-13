@@ -8,8 +8,8 @@ import (
 	"github.com/eshu0/persist/pkg/sqllite"
 
 	// these are from the package
-	hndlr "github.com/eshu0/todos/pkg/Handlers"
-	models "github.com/eshu0/todos/pkg/Models"
+	hndlr "github.com/eshu0/todos/pkg/handlers"
+	models "github.com/eshu0/todos/pkg/models"
 )
 
 // Controller
@@ -30,19 +30,19 @@ func (controller *ProjectsController) HandleRequest(request Request.ServerReques
 	data := request.Payload.(models.Project)
 	
 	if request.Request.Method == "POST" {
-		controller.Server.Log.LogDebug("HandleRequest", "Calling to insert a new Project")
+		controller.Server.LogDebug("HandleRequest", "Calling to insert a new Project")
 		result := controller.ProjectsHandler.Create(data)
 		return result
 
 	} else if request.Request.Method == "PUT" { 
 	
-		controller.Server.Log.LogDebug("HandleRequest", "Calling to update Project")
+		controller.Server.LogDebug("HandleRequest", "Calling to update Project")
 		result := controller.ProjectsHandler.Update(data)
 		return result
 
 	} else if request.Request.Method == "DELETE" { 
 	
-		controller.Server.Log.LogDebug("HandleRequest", "Calling to update the (DELETE) Project")
+		controller.Server.LogDebug("HandleRequest", "Calling to update the (DELETE) Project")
 		result := controller.ProjectsHandler.Update(data)
 		return result
 
@@ -50,20 +50,20 @@ func (controller *ProjectsController) HandleRequest(request Request.ServerReques
 		
 		Id := controller.Server.RequestHelper.GetRequestId(request.Request,"Id")
 		if Id != nil {
-			controller.Server.Log.LogDebugf("HandleRequest", "Id was not nil and have the following to lookup %d", *Id)
+			controller.Server.LogDebugf("HandleRequest", "Id was not nil and have the following to lookup %d", *Id)
 			result := controller.ProjectsHandler.FindById(int64(*Id))
 			return result
 		} else {
-			controller.Server.Log.LogError("HandleRequest", "Id was nil")
+			controller.Server.LogError("HandleRequest", "Id was nil")
 		}
 	}
 	
-	controller.Server.Log.LogError("HandleRequest", "Failed returning empty SQLLiteResult")
+	controller.Server.LogError("HandleRequest", "Failed returning empty SQLLiteResult")
 	return SQLL.NewEmptyFailedSQLLiteQueryResult()
 }
 
 func (controller *ProjectsController) HandleReadAllRequest(request Request.ServerRequest) per.IQueryResult { 
-	controller.Server.Log.LogDebug("HandleRequest", "Calling to read all Project")
+	controller.Server.LogDebug("HandleRequest", "Calling to read all Project")
 	result := controller.ProjectsHandler.ReadAll()
 	return result
 }
